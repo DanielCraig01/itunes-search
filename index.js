@@ -13,8 +13,16 @@ module.exports = async (req, res) => {
   searchItunes(query)
     .then(data => { send(res, 200, data) })
     .catch(error => { send(res, 500, error) })
+  
+  lookupITunes(query)
+  .then(data => { send(res, 200, data) })
+  .catch(error => { send(res, 500, error)})
 }
 
 const searchItunes = (query) =>
   fetch(`https://itunes.apple.com/search?${query}`)
     .then(resp => resp.json())
+
+const lookupITunes = (query) => 
+  fetch(`https://itunes.apple.com/lookup?${query}`)
+  .then(resp => resp.json())
