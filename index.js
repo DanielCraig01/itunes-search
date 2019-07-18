@@ -21,8 +21,8 @@ module.exports = async (req, res) => {
 
 const searchItunes = (query) =>
   fetch(`https://itunes.apple.com/search?${query}`)
-    .then(resp => resp.json())
+    .then(res => res.json())
 
 const lookupITunes = (query) => 
   fetch(`https://itunes.apple.com/lookup?${query}`)
-  .then(resp => resp.json())
+  .then(res => res.json())
